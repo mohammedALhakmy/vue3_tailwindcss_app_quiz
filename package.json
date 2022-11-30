@@ -17,6 +17,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "onchange": "^7.1.0"
   }
 }
