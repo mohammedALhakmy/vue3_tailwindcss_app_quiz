@@ -15,7 +15,7 @@ const app = Vue.createApp({
                {
                    question: "When did Facebook launch?",
                    answers: {a:"2005", b: "2008", c: "2003", d: "2004"},
-                   correctAnswer: 'b'
+                   correctAnswer: 'd'
                },
                {
                    question: "Albert Einstein had trouble with mathematics when he was in school?",
@@ -28,6 +28,11 @@ const app = Vue.createApp({
     methods: {
         answered(e) {
         this.selectedAnswer = e.target.value;
+        if (this.selectedAnswer == this.questions[this.index]['correctAnswer'])
+            this.correctAnswer++
+        else
+            this.wrongAnswer++
+            console.log(this.correctAnswer+"  " +this.wrongAnswer)
         console.log(this.selectedAnswer);
         },
         nextQuestion() {
@@ -36,6 +41,12 @@ const app = Vue.createApp({
         },
         showResults(){
             this.index++;
+        },
+        resetQuiz(){
+            this.index = 0;
+            this.selectedAnswer = ''
+            this.correctAnswer = 0
+            this.wrongAnswer = 0
         }
     },
 });
